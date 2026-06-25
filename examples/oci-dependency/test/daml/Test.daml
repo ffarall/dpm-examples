@@ -1,0 +1,16 @@
+module Test where
+
+import Daml.Script
+import qualified Main
+import DA.Assert
+
+main : Script ()
+main = do
+  a <- allocateParty "Alice"
+  let localGreeting =
+        Main.LocalGreeting with
+          sender = a
+          message = "Hello from the main package"
+  _ <- a `submit` createCmd localGreeting
+  "Hello from the main package" === (Main.toGreeting localGreeting).message
+  pure ()

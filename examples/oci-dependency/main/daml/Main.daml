@@ -1,0 +1,15 @@
+module Main where -- V1
+
+import Interfaces (Greeting(..))
+
+template LocalGreeting
+  with
+    sender : Party
+    message : Text
+  where
+    signatory sender
+
+toGreeting : LocalGreeting -> Greeting
+toGreeting localGreeting = Greeting with
+  sender = localGreeting.sender
+  message = localGreeting.message

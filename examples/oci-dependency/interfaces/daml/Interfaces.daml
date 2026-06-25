@@ -1,0 +1,8 @@
+module Interfaces where
+
+template Greeting
+  with
+    sender : Party
+    message : Text
+  where
+    signatory sender

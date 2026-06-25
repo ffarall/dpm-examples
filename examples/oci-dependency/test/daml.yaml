@@ -1,0 +1,16 @@
+# for config file options, refer to
+# https://docs.digitalasset.com/build/3.5/dpm/configuration.html#project-configuration
+
+name: oci-dependency-test
+source: daml
+version: 1.0.0
+sdk-version: 0.0.0
+
+dependencies:
+  - daml-prim
+  - daml-stdlib
+  - daml-script
+
+data-dependencies:
+  - ../interfaces/.daml/dist/oci-dependency-interfaces-1.0.0.dar
+  - ../main/.daml/dist/oci-dependency-main-1.0.0.dar
