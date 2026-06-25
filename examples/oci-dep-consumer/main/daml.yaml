@@ -1,0 +1,12 @@
+# for config file options, refer to
+# https://docs.digitalasset.com/build/3.5/dpm/configuration.html#project-configuration
+
+name: oci-dep-consumer-main
+source: daml
+version: 1.0.0
+sdk-version: 0.0.0
+
+dependencies:
+  - daml-prim
+  - daml-stdlib
+  - oci://pushiness-handwork-datebook.ngrok-free.dev/dars/oci-dependency-interfaces:1.0.0@sha256:5fcc52688c3576b96f9f5200e9f0b182adb0044ed88c86272b0be2fbcf603a63

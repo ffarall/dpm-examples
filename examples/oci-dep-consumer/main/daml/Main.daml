@@ -1,0 +1,20 @@
+module Main where -- V1
+
+import Interfaces (Greeting(..))
+
+template ConsumerGreeting
+  with
+    sender : Party
+    message : Text
+  where
+    signatory sender
+
+toGreeting : ConsumerGreeting -> Greeting
+toGreeting consumerGreeting = Greeting with
+  sender = consumerGreeting.sender
+  message = consumerGreeting.message
+
+example : Party -> ConsumerGreeting
+example sender = ConsumerGreeting with
+  sender = sender
+  message = "Hello from an OCI DAR dependency"

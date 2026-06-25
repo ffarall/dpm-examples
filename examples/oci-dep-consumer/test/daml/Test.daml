@@ -1,0 +1,14 @@
+module Test where
+
+import Daml.Script
+import Interfaces (Greeting(..))
+import qualified Main
+import DA.Assert
+
+main : Script ()
+main = do
+  a <- allocateParty "Alice"
+  let consumerGreeting = Main.example a
+  _ <- a `submit` createCmd consumerGreeting
+  "Hello from an OCI DAR dependency" === (Main.toGreeting consumerGreeting).message
+  pure ()
